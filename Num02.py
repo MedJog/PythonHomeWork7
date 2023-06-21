@@ -13,15 +13,18 @@
 #5 10 15 20 25 30
 #6 12 18 24 30 36
 
-
 from typing import Callable
-def operation_table(operation: Callable, num_rous, num_columns):
-    for i in range(1, num_rous + 1):
-        print()
+def operation_table(operation: Callable, num_rows, num_columns):
+    my_list = [x for x in range(1,num_columns + 1)]
+    print(*my_list)
+    for i in range(2, num_rows + 1):
         print(i, end=' ')
-        for j in range(2, num_columns + 1):
-            result = operation(i, j)
+        for j in range(1, num_columns):
+            result = operation(i, my_list[j])
             print(result, end=' ')
-    print()
+        print()
+   
 
 operation_table(lambda x, y: x * y, 6, 6)
+print()
+operation_table(lambda x, y: x + y, 6, 6)
