@@ -8,3 +8,22 @@
 # *Пример:*
 # **Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да    
 # **Вывод:** Парам пам-пам  
+
+#text = 'Пара-ра-Рам рАм-пам-пАпам пам-ПАМ па-ра-па-да '
+#text = ' пара-ра-рам рам-пам-папам па-ра-па-да '
+
+text = input("Введите текст стихотворения: ")
+text = (text + ' ').lower()
+print(text)
+my_dict = ['а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я']
+count = 0
+number_vowels = []
+for i in range(len(text)):
+    if text[i] in my_dict:
+        count = count + 1      
+    if text[i] == ' ':
+        number_vowels.append(count)
+        count = 0
+if len(set(number_vowels)) == 1: 
+    print('Парам пам-пам! Отличный ритм!')
+else: print('Пам парам! Увы, ритма нет!')
